@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2017 TripNDroid Mobile Engineering
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory android:title="@string/pref_dsp_title">
+    <CheckBoxPreference
+        android:key="dsp.masterswitch.enable"
+        android:summaryOn="@string/pref_dsp_summary_on"
+        android:summaryOff="@string/pref_dsp_summary_off"
+        android:disableDependentsState="false"
+        android:title="@string/pref_dsp_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:key="dsp.masterswitch.clipmode"
+        android:defaultValue="0"
+        android:dialogTitle="@string/pref_clip_title"
+        android:entries="@array/clip_mode"
+        android:entryValues="@array/clip_mode_values"
+        android:title="@string/pref_clip_title" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.masterswitch.finalgain"
+        android:defaultValue="100"
+        android:dialogTitle="@string/dialog_gain"
+        android:title="@string/dialog_gain"
+        android:inputType="number" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/pref_compression_title">
+    <CheckBoxPreference
+        android:key="dsp.compression.enable"
+        android:summaryOn="@string/pref_compression_summary_on"
+        android:summaryOff="@string/pref_compression_summary_off"
+        android:disableDependentsState="false"
+        android:title="@string/pref_compression_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:key="dsp.compression.pregain"
+        android:defaultValue="12"
+        android:dialogTitle="@string/dialog_pregain"
+        android:entries="@array/compression_pregain"
+        android:entryValues="@array/compression_pregain_values"
+        android:title="@string/dialog_pregain" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.compression.threshold"
+        android:defaultValue="-60"
+        android:dialogTitle="@string/dialog_threshold"
+        android:title="@string/dialog_threshold"
+        android:inputType="number|numberSigned" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.compression.knee"
+        android:defaultValue="30"
+        android:dialogTitle="@string/dialog_knee"
+        android:title="@string/dialog_knee"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.compression.ratio"
+        android:defaultValue="12"
+        android:dialogTitle="@string/dialog_ratio"
+        android:title="@string/dialog_ratio"
+        android:inputType="number|numberSigned" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.compression.attack"
+        android:defaultValue="0.01"
+        android:dialogTitle="@string/dialog_attack"
+        android:title="@string/dialog_attack"
+        android:inputType="numberDecimal" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.compression.release"
+        android:defaultValue="0.24"
+        android:dialogTitle="@string/dialog_release"
+        android:title="@string/dialog_release"
+        android:inputType="numberDecimal" />
+  </PreferenceCategory>
+
+  <PreferenceCategory android:title="@string/pref_bassboost_title">
+    <CheckBoxPreference
+        android:disableDependentsState="false"
+        android:key="dsp.bass.enable"
+        android:summaryOn="@string/pref_bassboost_summary_on"
+        android:summaryOff="@string/pref_bassboost_summary_off"
+        android:title="@string/pref_bassboost_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:entries="@array/bassboost_modes"
+        android:dialogTitle="@string/dialog_effect"
+        android:key="dsp.bass.mode"
+        android:defaultValue="600"
+        android:title="@string/pref_effect_title"
+        android:entryValues="@array/bassboost_modes_values" />
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/dialog_filtertype"
+        android:entries="@array/bassboost_filtertype"
+        android:entryValues="@array/bassboost_filtertype_values"
+        android:title="@string/dialog_filtertype"
+        android:key="dsp.bass.filtertype" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:dialogTitle="@string/pref_effect_freq_title"
+        android:key="dsp.bass.freq"
+        android:defaultValue="55"
+        android:title="@string/pref_effect_freq_title"
+        android:inputType="number" />
+  </PreferenceCategory>
+
+  <PreferenceCategory android:title="@string/pref_equalizer_title">
+    <CheckBoxPreference
+        android:disableDependentsState="false"
+        android:key="dsp.tone.enable"
+        android:summaryOn="@string/pref_equalizer_summary_on"
+        android:summaryOff="@string/pref_equalizer_summary_off"
+        android:title="@string/pref_equalizer_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:entries="@array/equalizer_preset_modes"
+        android:dialogTitle="@string/pref_equalizer_preset_title"
+        android:key="dsp.tone.eq"
+        android:defaultValue="0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0"
+        android:title="@string/pref_equalizer_preset_title"
+        android:entryValues="@array/equalizer_preset_values" />
+    <com.tripndroid.optisound.preference.EqualizerPreference android:key="dsp.tone.eq.custom" />
+  </PreferenceCategory>
+
+  <PreferenceCategory android:title="@string/pref_headset_virtual_title">
+    <CheckBoxPreference
+        android:key="dsp.headphone.enable"
+        android:disableDependentsState="false"
+        android:summaryOn="@string/pref_headset_virtual_summary_on"
+        android:summaryOff="@string/pref_headset_virtual_summary_off"
+        android:title="@string/pref_headset_virtual_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+         android:key="dsp.headphone.modeverb"
+         android:defaultValue="1"
+         android:dialogTitle="@string/dialog_mode"
+         android:entries="@array/headphone_mode"
+         android:entryValues="@array/headphone_modeverb_values"
+         android:title="@string/dialog_mode" />
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/dialog_room"
+        android:entries="@array/headphone_preset"
+        android:entryValues="@array/headphone_preset_values"
+        android:title="@string/pref_room_title"
+        android:key="dsp.headphone.preset" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.roomsize"
+        android:defaultValue="50"
+        android:dialogTitle="@string/dialog_roomsize"
+        android:title="@string/dialog_roomsize"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.reverbtime"
+        android:defaultValue="50"
+        android:dialogTitle="@string/dialog_reverbtime"
+        android:title="@string/dialog_reverbtime"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.damping"
+        android:defaultValue="50"
+        android:dialogTitle="@string/dialog_damping"
+        android:title="@string/dialog_damping"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.inbandwidth"
+        android:defaultValue="80"
+        android:dialogTitle="@string/dialog_inbandwidth"
+        android:title="@string/dialog_inbandwidth"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.earlyverb"
+        android:defaultValue="50"
+        android:dialogTitle="@string/dialog_earlyverb"
+        android:title="@string/dialog_earlyverb"
+        android:inputType="number" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.headphone.tailverb"
+        android:defaultValue="50"
+        android:dialogTitle="@string/dialog_tailverb"
+        android:title="@string/dialog_tailverb"
+        android:inputType="number" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/pref_convolver_title"
+      android:key="dsp.convolver">
+    <CheckBoxPreference
+        android:key="dsp.convolver.enable"
+        android:disableDependentsState="false"
+        android:summaryOn="@string/pref_convolver_summary_on"
+        android:summaryOff="@string/pref_convolver_summary_off"
+        android:title="@string/pref_convolver_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreferenceWithCustom
+        android:title="@string/dialog_offlineimpulseresponseresampler"
+        android:key="dsp.convolver.resampler"
+        android:defaultValue=""
+        android:dialogTitle="@string/dialog_offlineimpulseresponseresampler_title" />
+    <com.tripndroid.optisound.preference.SummariedListPreferenceWithCustom
+        android:title="@string/dialog_impulseresponse"
+        android:key="dsp.convolver.files"
+        android:defaultValue=""
+        android:dialogTitle="@string/dialog_impulseresponse" />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.convolver.normalise"
+        android:defaultValue="0.2"
+        android:dialogTitle="@string/dialog_normalise"
+        android:title="@string/dialog_normalise"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:defaultValue="1"
+        android:dialogTitle="@string/dialog_length"
+        android:entries="@array/quality_level"
+        android:entryValues="@array/quality_values"
+        android:title="@string/dialog_quality"
+        android:key="dsp.convolver.quality" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/pref_analogmodelling_title"
+      android:key="dsp.analogmodelling">
+    <CheckBoxPreference
+        android:key="dsp.analogmodelling.enable"
+        android:disableDependentsState="false"
+        android:summaryOn="@string/pref_analogmodelling_summary_on"
+        android:summaryOff="@string/pref_analogmodelling_summary_off"
+        android:title="@string/pref_analogmodelling_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.analogmodelling.tubedrive"
+        android:defaultValue="2"
+        android:dialogTitle="@string/dialog_tubedrive"
+        android:title="@string/dialog_tubedrive"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.analogmodelling.tubebass"
+        android:defaultValue="8"
+        android:dialogTitle="@string/dialog_tubebass"
+        android:title="@string/dialog_tubebass"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.analogmodelling.tubemid"
+        android:defaultValue="5.6"
+        android:dialogTitle="@string/dialog_tubemid"
+        android:title="@string/dialog_tubemid"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.analogmodelling.tubetreble"
+        android:defaultValue="4.5"
+        android:dialogTitle="@string/dialog_tubetreble"
+        android:title="@string/dialog_tubetreble"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+    <com.tripndroid.optisound.preference.SummariedTextPreferenceRanged
+        android:key="dsp.analogmodelling.tubetonestack"
+        android:defaultValue="5"
+        android:dialogTitle="@string/dialog_tubetonestack"
+        android:title="@string/dialog_tubetonestack"
+        android:inputType="numberDecimal"
+        android:digits="0123456789." />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/pref_headset_stereowide_title">
+    <CheckBoxPreference
+        android:key="dsp.stereowide.enable"
+        android:disableDependentsState="false"
+        android:summaryOn="@string/pref_headset_stereowide_summary_on"
+        android:summaryOff="@string/pref_headset_stereowide_summary_off"
+        android:title="@string/pref_headset_stereowide_enable"></CheckBoxPreference>
+    <com.tripndroid.optisound.preference.SummariedListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/dialog_stereo"
+        android:entries="@array/stereowide_modes"
+        android:entryValues="@array/stereowide_values"
+        android:title="@string/dialog_stereo"
+        android:key="dsp.stereowide.mode" />
+  </PreferenceCategory>
+</PreferenceScreen>
